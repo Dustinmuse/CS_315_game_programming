@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dh1mreehhw7i7"]
+
+[ext_resource type="Script" path="res://SHUMP Exercise/game_controller.gd" id="1_cdc2m"]
+[ext_resource type="Texture2D" uid="uid://cigqv61uer681" path="res://sprites/PNG/playerShip1_green.png" id="2_2gjxs"]
+[ext_resource type="Script" path="res://SHUMP Exercise/player.gd" id="2_q3kng"]
+[ext_resource type="PackedScene" uid="uid://brewuw4ndq56p" path="res://SHUMP Exercise/enemy.tscn" id="4_uxt5j"]
+[ext_resource type="Script" path="res://SHUMP Exercise/enemy_spawner.gd" id="4_yo3tt"]
+[ext_resource type="PackedScene" uid="uid://b6738yta1xaed" path="res://SHUMP Exercise/bullet.tscn" id="6_frrkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ebuj0"]
+size = Vector2(77, 79)
+
+[node name="SpaceShipShooter" type="Node2D"]
+script = ExtResource("1_cdc2m")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+position = Vector2(571, 490)
+collision_mask = 4
+motion_mode = 1
+script = ExtResource("2_q3kng")
+
+[node name="img" type="Sprite2D" parent="Player"]
+texture = ExtResource("2_2gjxs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-2.5, 2.5)
+shape = SubResource("RectangleShape2D_ebuj0")
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("4_yo3tt")
+
+[node name="Timer" type="Timer" parent="EnemySpawner"]
+wait_time = 2.0
+autostart = true
+
+[node name="Enemy" parent="." instance=ExtResource("4_uxt5j")]
+
+[node name="txtScore" type="Label" parent="."]
+offset_left = 68.0
+offset_top = 37.0
+offset_right = 159.0
+offset_bottom = 97.0
+text = "0"
+
+[node name="bullet" parent="." instance=ExtResource("6_frrkd")]
+
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

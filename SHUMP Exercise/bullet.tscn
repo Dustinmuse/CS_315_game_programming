@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://b6738yta1xaed"]
+
+[ext_resource type="Script" path="res://SHUMP Exercise/bullet.gd" id="1_ebvch"]
+[ext_resource type="Texture2D" uid="uid://dv255g54g4nrt" path="res://sprites/PNG/Lasers/laserRed01.png" id="2_725vx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b2k1l"]
+size = Vector2(20, 79)
+
+[node name="bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_ebvch")
+
+[node name="LaserRed01" type="Sprite2D" parent="."]
+texture = ExtResource("2_725vx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 3.5)
+shape = SubResource("RectangleShape2D_b2k1l")
