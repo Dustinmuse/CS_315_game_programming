@@ -1,0 +1,107 @@
+[gd_scene load_steps=14 format=3 uid="uid://cdtcdedxkp6o7"]
+
+[ext_resource type="Script" path="res://spinnyplane/flappyController.gd" id="1_icnyh"]
+[ext_resource type="Texture2D" uid="uid://bdu3ifwti1ogg" path="res://spinnyplane/tappyplane/PNG/Planes/planeRed1.png" id="1_mstwv"]
+[ext_resource type="Script" path="res://spinnyplane/plane.gd" id="2_ajicr"]
+[ext_resource type="Texture2D" uid="uid://cyht1q214cnfg" path="res://spinnyplane/tappyplane/PNG/Planes/planeRed2.png" id="2_gcgr6"]
+[ext_resource type="Texture2D" uid="uid://ceq0wmwlrxoqt" path="res://spinnyplane/tappyplane/PNG/Planes/planeRed3.png" id="3_3nngt"]
+[ext_resource type="PackedScene" uid="uid://bv76eo214r1e5" path="res://spinnyplane/rock.tscn" id="4_7r3b3"]
+[ext_resource type="AudioStream" uid="uid://dmrgel44jq1mx" path="res://spinnyplane/three-red-hearts-prepare-to-dev-download/Three Red Hearts - Deep Blue.ogg" id="7_yttl3"]
+[ext_resource type="AudioStream" uid="uid://d3dp6t5amaotw" path="res://spinnyplane/kenney_impact-sounds/Audio/impactPunch_heavy_004.ogg" id="8_2mbq6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_dcqhi"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_raiec"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mstwv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_gcgr6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3nngt")
+}],
+"loop": true,
+"name": &"flap",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_mstwv")
+}],
+"loop": true,
+"name": &"glide",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_pxtv1"]
+resource_name = "slide in"
+
+[sub_resource type="Animation" id="Animation_fohdt"]
+resource_name = "flap"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kx346"]
+_data = {
+"flap": SubResource("Animation_fohdt"),
+"slide in": SubResource("Animation_pxtv1")
+}
+
+[node name="Spinnyplane" type="Node2D"]
+script = ExtResource("1_icnyh")
+
+[node name="plane" type="RigidBody2D" parent="."]
+script = ExtResource("2_ajicr")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="plane"]
+shape = SubResource("CircleShape2D_dcqhi")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="plane"]
+position = Vector2(139, 245)
+sprite_frames = SubResource("SpriteFrames_raiec")
+animation = &"flap"
+autoplay = "glide"
+
+[node name="rock" parent="." instance=ExtResource("4_7r3b3")]
+position = Vector2(-267, 271)
+
+[node name="rock_timer" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[node name="GameOver" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="GameOver"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Game Over"
+
+[node name="Button" type="Button" parent="GameOver"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Play again"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
+libraries = {
+"": SubResource("AnimationLibrary_kx346")
+}
+
+[node name="sfx" type="Node2D" parent="."]
+
+[node name="bgm" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("7_yttl3")
+autoplay = true
+
+[node name="thud" type="AudioStreamPlayer" parent="sfx"]
+stream = ExtResource("8_2mbq6")
+
+[connection signal="timeout" from="rock_timer" to="." method="_on_rock_timer_timeout"]
+[connection signal="pressed" from="GameOver/Button" to="." method="_on_button_pressed"]
