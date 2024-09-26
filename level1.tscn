@@ -1,0 +1,111 @@
+[gd_scene load_steps=9 format=3 uid="uid://bhexwr5tn40od"]
+
+[ext_resource type="Script" path="res://Labs/6/game controller.gd" id="1_vm56o"]
+[ext_resource type="TileSet" uid="uid://b8gkbhlqwl2em" path="res://Labs/6/GameTiles.tres" id="2_xxo7w"]
+[ext_resource type="Script" path="res://Labs/6/player.gd" id="3_3eofl"]
+[ext_resource type="Texture2D" uid="uid://dbg6xgms8sg2j" path="res://sprites/platformer/character_0000.png" id="4_2mrq4"]
+[ext_resource type="Script" path="res://Labs/6/coin.gd" id="5_w631e"]
+[ext_resource type="Texture2D" uid="uid://cvcfycy11o04a" path="res://Labs/6/assets/coin.png" id="6_v5n4e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_v35ds"]
+radius = 18.2483
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tikpu"]
+radius = 12.1655
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_vm56o")
+
+[node name="TileMap" type="TileMap" parent="."]
+physics_interpolation_mode = 1
+tile_set = ExtResource("2_xxo7w")
+format = 2
+layer_0/tile_data = PackedInt32Array(524296, 131076, 2, 524297, 131076, 2, 524298, 131076, 2, 524299, 131076, 2, 524300, 131076, 2, 524301, 131076, 2, 524302, 131076, 2, 524303, 131076, 2, 983063, 131076, 2, 983068, 131076, 2, 1245216, 131076, 2, 1245221, 131076, 2, 917522, 131076, 2, 1310763, 131076, 2, 1179653, 131076, 2, 1048585, 131076, 2, 851981, 131076, 2, 1179663, 131076, 2, 917523, 131076, 2, 1441805, 131076, 2, 1441810, 131076, 2, 1441801, 131076, 2, 1245192, 131076, 2, 786441, 131076, 2, 1245196, 131076, 2, 458767, 131076, 2, 393231, 131076, 2, 327695, 131076, 2, 262159, 131076, 2, 196623, 131076, 2, 131087, 131076, 2, 65551, 131076, 2, 15, 131076, 2, 917505, 131076, 2, 1441795, 131076, 2, 786453, 131076, 2, 786455, 131076, 2, 1179673, 131076, 2, 1572888, 131076, 2, 1638420, 131076, 2, 1048608, 131076, 2, 917530, 131076, 2, 1048602, 131076, 2, 983070, 131076, 2, 1572898, 131076, 2, 1572903, 131076, 2, 1376292, 131076, 2, 1114151, 131076, 2, 983081, 131076, 2, 983082, 131076, 2, 983083, 131076, 2, 983084, 131076, 2, 1572905, 131076, 2, 1048617, 131076, 2, 1114154, 131076, 2, 1245226, 131076, 2, 1179690, 131076, 2, 1572908, 131076, 2, 1441839, 131076, 2, 1900587, 131076, 2, 1900584, 131076, 2, 1900581, 131076, 2, 1900576, 131076, 2, 1900572, 131076, 2, 1703963, 131076, 2, 2097187, 131076, 2, 1245234, 131076, 2, 1179694, 131076, 2)
+
+[node name="Score" type="Label" parent="."]
+offset_right = 65.0
+offset_bottom = 42.0
+text = "Score: 0"
+
+[node name="player" type="CharacterBody2D" parent="."]
+script = ExtResource("3_3eofl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
+position = Vector2(186, 94)
+shape = SubResource("CircleShape2D_v35ds")
+
+[node name="Sprite2D" type="Sprite2D" parent="player"]
+position = Vector2(186, 94)
+scale = Vector2(1.41667, 1.25)
+texture = ExtResource("4_2mrq4")
+
+[node name="Coin" type="Area2D" parent="."]
+position = Vector2(-235, -27)
+script = ExtResource("5_w631e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin"]
+position = Vector2(612, 249)
+scale = Vector2(1.55556, 1.44444)
+texture = ExtResource("6_v5n4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin"]
+position = Vector2(613, 249)
+shape = SubResource("CircleShape2D_tikpu")
+
+[node name="Coin2" type="Area2D" parent="."]
+position = Vector2(-157, -21)
+script = ExtResource("5_w631e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin2"]
+position = Vector2(614, 242)
+scale = Vector2(1.61111, 1.72222)
+texture = ExtResource("6_v5n4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2"]
+position = Vector2(615, 244)
+shape = SubResource("CircleShape2D_tikpu")
+
+[node name="Coin3" type="Area2D" parent="."]
+position = Vector2(-95, 44)
+script = ExtResource("5_w631e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin3"]
+position = Vector2(618, 244)
+scale = Vector2(1.83333, 1.72222)
+texture = ExtResource("6_v5n4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin3"]
+position = Vector2(618, 244)
+shape = SubResource("CircleShape2D_tikpu")
+
+[node name="Coin4" type="Area2D" parent="."]
+position = Vector2(-11, 49)
+script = ExtResource("5_w631e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin4"]
+position = Vector2(614, 240)
+scale = Vector2(1.77778, 1.66667)
+texture = ExtResource("6_v5n4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin4"]
+position = Vector2(615, 239)
+shape = SubResource("CircleShape2D_tikpu")
+
+[node name="Coin5" type="Area2D" parent="."]
+position = Vector2(88, 71)
+script = ExtResource("5_w631e")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin5"]
+position = Vector2(611, 235)
+scale = Vector2(1.94444, 2)
+texture = ExtResource("6_v5n4e")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin5"]
+position = Vector2(611, 235)
+shape = SubResource("CircleShape2D_tikpu")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin3" to="Coin3" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin4" to="Coin4" method="_on_body_entered"]
+[connection signal="body_entered" from="Coin5" to="Coin5" method="_on_body_entered"]
