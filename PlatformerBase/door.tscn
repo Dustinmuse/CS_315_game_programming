@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgqj4xnl1n3ry"]
+
+[ext_resource type="Texture2D" uid="uid://dylx4mhpy8giq" path="res://prototyping_assets/door/tile_0089.png" id="1_fwypm"]
+[ext_resource type="Script" path="res://door.gd" id="1_vfwsh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjeop"]
+size = Vector2(44, 39)
+
+[sub_resource type="LabelSettings" id="LabelSettings_nm0sj"]
+font_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Door" type="Area2D"]
+script = ExtResource("1_vfwsh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(12, -9.5)
+shape = SubResource("RectangleShape2D_cjeop")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(12, -9.5)
+scale = Vector2(2.5, 2.1875)
+texture = ExtResource("1_fwypm")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -58.0
+offset_right = 46.0
+offset_bottom = -46.0
+text = "Press [Q] to enter"
+label_settings = SubResource("LabelSettings_nm0sj")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
