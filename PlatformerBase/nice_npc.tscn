@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://b338jna4maqn5"]
+
+[ext_resource type="Texture2D" uid="uid://cftkucbjcs7qj" path="res://prototyping_assets/Characters/character_0004.png" id="1_75xlq"]
+[ext_resource type="Script" path="res://nice_npc.gd" id="1_a35ui"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rg1gl"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_pjywq"]
+font_size = 8
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="NiceNPC" type="Area2D"]
+position = Vector2(418, 287)
+script = ExtResource("1_a35ui")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_rg1gl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_75xlq")
+
+[node name="NPCLabel" type="Label" parent="."]
+offset_left = -37.0
+offset_top = -35.0
+offset_right = 38.0
+offset_bottom = -23.0
+text = "Press [F] to interact"
+label_settings = SubResource("LabelSettings_pjywq")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

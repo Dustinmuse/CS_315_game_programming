@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8lvff6ek4eos"]
+
+[ext_resource type="Script" path="res://ladder.gd" id="1_1ek27"]
+[ext_resource type="Texture2D" uid="uid://brxl507phfjks" path="res://prototyping_assets/item/tile_0071.png" id="1_w028n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w61pl"]
+size = Vector2(20, 127)
+
+[node name="ladder" type="Area2D"]
+script = ExtResource("1_1ek27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -53.5)
+shape = SubResource("RectangleShape2D_w61pl")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(0, -18)
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(0, -89)
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(0, -71)
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D5" type="Sprite2D" parent="."]
+position = Vector2(0, -54)
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D6" type="Sprite2D" parent="."]
+position = Vector2(0, -36)
+texture = ExtResource("1_w028n")
+
+[node name="Sprite2D7" type="Sprite2D" parent="."]
+position = Vector2(0, -107)
+texture = ExtResource("1_w028n")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

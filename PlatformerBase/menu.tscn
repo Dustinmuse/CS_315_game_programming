@@ -1,0 +1,88 @@
+[gd_scene load_steps=11 format=3 uid="uid://316ylbqbck7s"]
+
+[ext_resource type="Script" path="res://button.gd" id="1_ficvq"]
+[ext_resource type="Texture2D" uid="uid://cj1w65w1u420f" path="res://PNG/moon_half.png" id="1_smtc8"]
+[ext_resource type="Texture2D" uid="uid://cgffbdlbp4y26" path="res://PNG/house_beige_front.png" id="2_f52m1"]
+[ext_resource type="Texture2D" uid="uid://hfnt7cdg50bk" path="res://PNG/cloud1.png" id="3_5bsod"]
+[ext_resource type="Texture2D" uid="uid://dwfttksmcj2i" path="res://PNG/cloud6.png" id="4_e3agn"]
+[ext_resource type="Texture2D" uid="uid://gtjqo5s87mct" path="res://PNG/fence.png" id="6_76xlp"]
+[ext_resource type="Texture2D" uid="uid://bmhpyosgte1j4" path="res://PNG/tree15.png" id="6_uqul0"]
+[ext_resource type="Texture2D" uid="uid://gf8hkgjjtg1a" path="res://prototyping_assets/Characters/character_0000.png" id="8_fe0ow"]
+[ext_resource type="Script" path="res://button_2.gd" id="9_hay25"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_b424i"]
+font_size = 28
+font_color = Color(0, 1, 1, 1)
+outline_size = 5
+outline_color = Color(0, 0, 0, 1)
+
+[node name="Menu" type="Node2D"]
+
+[node name="MoonHalf" type="Sprite2D" parent="."]
+position = Vector2(502, 56)
+texture = ExtResource("1_smtc8")
+
+[node name="House" type="Sprite2D" parent="."]
+position = Vector2(454, 240)
+texture = ExtResource("2_f52m1")
+
+[node name="Cloud1" type="Sprite2D" parent="."]
+position = Vector2(137, 59)
+scale = Vector2(0.731579, 0.73622)
+texture = ExtResource("3_5bsod")
+
+[node name="Cloud2" type="Sprite2D" parent="."]
+position = Vector2(330, 51)
+scale = Vector2(0.778196, 0.826087)
+texture = ExtResource("4_e3agn")
+
+[node name="Fence" type="Sprite2D" parent="."]
+position = Vector2(99, 255)
+texture = ExtResource("6_76xlp")
+
+[node name="Tree" type="Sprite2D" parent="."]
+position = Vector2(126, 164)
+texture = ExtResource("6_uqul0")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(451, 145)
+scale = Vector2(2.75, 2.58333)
+texture = ExtResource("8_fe0ow")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 73.0
+offset_top = 38.0
+offset_right = 517.0
+offset_bottom = 77.0
+text = "The Adventures of The Lost Alien"
+label_settings = SubResource("LabelSettings_b424i")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 102.0
+offset_right = 384.0
+offset_bottom = 178.0
+text = "Level 1"
+script = ExtResource("1_ficvq")
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 179.0
+offset_top = 195.0
+offset_right = 384.0
+offset_bottom = 271.0
+text = "Level 2"
+script = ExtResource("9_hay25")
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
+[connection signal="pressed" from="Control/Button2" to="Control/Button2" method="_on_pressed"]

@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://bnl1lp56tvvio"]
+
+[ext_resource type="Script" path="res://chest.gd" id="1_va17d"]
+[ext_resource type="Texture2D" uid="uid://c18je85gy3kvm" path="res://prototyping_assets/item/tile_0028.png" id="2_i0cvx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o6nq6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r74vq"]
+line_spacing = 2.0
+font_size = 7
+shadow_color = Color(0, 0, 0, 1)
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_va17d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o6nq6")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_i0cvx")
+
+[node name="ChestLabel" type="Label" parent="."]
+offset_left = -33.0
+offset_top = -62.0
+offset_right = 36.0
+offset_bottom = -37.0
+text = "Find the key to open
+Press [E] to open"
+label_settings = SubResource("LabelSettings_r74vq")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
