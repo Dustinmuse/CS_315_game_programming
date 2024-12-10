@@ -1,0 +1,92 @@
+[gd_scene load_steps=7 format=3 uid="uid://bn0co1xyfhdtl"]
+
+[ext_resource type="Script" path="res://scenes/button.gd" id="1_dvagd"]
+[ext_resource type="PackedScene" uid="uid://cj40bkf5rpd8p" path="res://scenes/enemy.tscn" id="2_0mo4e"]
+[ext_resource type="PackedScene" uid="uid://cxlo3igypiqh4" path="res://scenes/bullet.tscn" id="3_8eyer"]
+[ext_resource type="Texture2D" uid="uid://dutrftt64vthm" path="res://sprites/items/tile_0028.png" id="4_cax44"]
+[ext_resource type="Texture2D" uid="uid://chxl2dt3md1wi" path="res://sprites/items/tile_0027.png" id="5_7jea6"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_folko"]
+font_size = 24
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 296.0
+offset_top = -1.0
+offset_right = 876.0
+offset_bottom = 328.0
+color = Color(0.0901961, 0.635294, 0.596078, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_top = 21.0
+offset_right = 1152.0
+offset_bottom = 96.0
+text = "Enless Apocalypse: Last Stand"
+label_settings = SubResource("LabelSettings_folko")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 466.0
+offset_top = 138.0
+offset_right = 690.0
+offset_bottom = 247.0
+text = "Start Game"
+script = ExtResource("1_dvagd")
+
+[node name="Enemy" parent="Control" instance=ExtResource("2_0mo4e")]
+position = Vector2(478, 122)
+
+[node name="bullet" parent="Control" instance=ExtResource("3_8eyer")]
+position = Vector2(505, 119)
+
+[node name="Enemy2" parent="Control" instance=ExtResource("2_0mo4e")]
+position = Vector2(535, 121)
+
+[node name="Enemy3" parent="Control" instance=ExtResource("2_0mo4e")]
+position = Vector2(590, 121)
+
+[node name="Enemy4" parent="Control" instance=ExtResource("2_0mo4e")]
+position = Vector2(646, 121)
+
+[node name="bullet2" parent="Control" instance=ExtResource("3_8eyer")]
+position = Vector2(561, 120)
+
+[node name="bullet3" parent="Control" instance=ExtResource("3_8eyer")]
+position = Vector2(617, 120)
+
+[node name="bullet4" parent="Control" instance=ExtResource("3_8eyer")]
+position = Vector2(671, 119)
+
+[node name="Tile0028" type="Sprite2D" parent="Control"]
+position = Vector2(457, 237)
+texture = ExtResource("4_cax44")
+
+[node name="Tile0029" type="Sprite2D" parent="Control"]
+position = Vector2(700, 238)
+texture = ExtResource("4_cax44")
+
+[node name="Tile0027" type="Sprite2D" parent="Control"]
+position = Vector2(431, 237)
+texture = ExtResource("5_7jea6")
+
+[node name="Tile0030" type="Sprite2D" parent="Control"]
+position = Vector2(724, 237)
+texture = ExtResource("5_7jea6")
+flip_h = true
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(585, 163)
+zoom = Vector2(2, 2)
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]

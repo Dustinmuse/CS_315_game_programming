@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=3 uid="uid://dohcqdqlpd4dp"]
+
+[ext_resource type="PackedScene" uid="uid://clyj8hwa5tfvi" path="res://scenes/floor.tscn" id="1_30kfo"]
+[ext_resource type="Script" path="res://scenes/GameController.gd" id="1_nn1xq"]
+[ext_resource type="PackedScene" uid="uid://8ovsufo7ksng" path="res://scenes/chest.tscn" id="3_e7j2e"]
+[ext_resource type="Script" path="res://scenes/enemy_spawner.gd" id="3_k81gn"]
+[ext_resource type="PackedScene" uid="uid://okylm8vblhrx" path="res://scenes/player.tscn" id="4_74gae"]
+[ext_resource type="AudioStream" uid="uid://body157hxafpw" path="res://sfx/background/12x8bitDarkTracks/8BIT12 - GP Ensemble - 4 4 - D  minor - 80BPM.mp3" id="6_rqbu6"]
+
+[node name="GameController" type="Node2D"]
+script = ExtResource("1_nn1xq")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -177.0
+offset_top = -130.0
+offset_right = 806.0
+offset_bottom = 457.0
+color = Color(0.823529, 0.705882, 0.54902, 1)
+
+[node name="floor" parent="." instance=ExtResource("1_30kfo")]
+position = Vector2(320, 143)
+metadata/_edit_group_ = true
+
+[node name="chest" parent="." instance=ExtResource("3_e7j2e")]
+position = Vector2(347, 152)
+
+[node name="player" parent="." instance=ExtResource("4_74gae")]
+
+[node name="EnemySpawner" type="Node2D" parent="."]
+script = ExtResource("3_k81gn")
+
+[node name="Timer" type="Timer" parent="EnemySpawner"]
+autostart = true
+
+[node name="background_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("6_rqbu6")
+volume_db = -3.962
+autoplay = true
+
+[connection signal="body_entered" from="chest" to="player" method="_on_chest_body_entered"]
+[connection signal="body_exited" from="chest" to="player" method="_on_chest_body_exited"]
+[connection signal="timeout" from="EnemySpawner/Timer" to="EnemySpawner" method="_on_timer_timeout"]

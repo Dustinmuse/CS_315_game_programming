@@ -1,0 +1,100 @@
+[gd_scene load_steps=2 format=3 uid="uid://clyj8hwa5tfvi"]
+
+[ext_resource type="Texture2D" uid="uid://57ct7dda062s" path="res://sprites/Interior Textures/Woodwall3_Texture.png" id="1_4ovuu"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Woodwall3Texture" type="Sprite2D" parent="."]
+position = Vector2(-65, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture2" type="Sprite2D" parent="."]
+position = Vector2(37, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture3" type="Sprite2D" parent="."]
+position = Vector2(-65, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture4" type="Sprite2D" parent="."]
+position = Vector2(-65, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture5" type="Sprite2D" parent="."]
+position = Vector2(-167, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture6" type="Sprite2D" parent="."]
+position = Vector2(37, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture7" type="Sprite2D" parent="."]
+position = Vector2(37, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture8" type="Sprite2D" parent="."]
+position = Vector2(-167, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture9" type="Sprite2D" parent="."]
+position = Vector2(-167, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture10" type="Sprite2D" parent="."]
+position = Vector2(37, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture11" type="Sprite2D" parent="."]
+position = Vector2(139, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture12" type="Sprite2D" parent="."]
+position = Vector2(139, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture13" type="Sprite2D" parent="."]
+position = Vector2(139, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture14" type="Sprite2D" parent="."]
+position = Vector2(241, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture15" type="Sprite2D" parent="."]
+position = Vector2(241, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture16" type="Sprite2D" parent="."]
+position = Vector2(241, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture17" type="Sprite2D" parent="."]
+position = Vector2(-269, -92)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture18" type="Sprite2D" parent="."]
+position = Vector2(-269, 10)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")
+
+[node name="Woodwall3Texture19" type="Sprite2D" parent="."]
+position = Vector2(-269, 112)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_4ovuu")

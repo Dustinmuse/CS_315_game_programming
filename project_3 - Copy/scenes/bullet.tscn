@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxlo3igypiqh4"]
+
+[ext_resource type="Texture2D" uid="uid://c1y7n6revxam6" path="res://sprites/kenney_top-down-shooter/PNG/Tiles/tile_94.png" id="1_qfp78"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_thv0g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hhuqe"]
+radius = 1.0
+
+[node name="bullet" type="Area2D"]
+script = ExtResource("1_thv0g")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(2.98023e-08, 5.96046e-08)
+scale = Vector2(0.047625, 0.046875)
+texture = ExtResource("1_qfp78")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_hhuqe")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

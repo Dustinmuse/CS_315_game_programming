@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://da7cttlejervn"]
+
+[ext_resource type="Script" path="res://scenes/game_over_button.gd" id="1_hhjh3"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_o8t8k"]
+
+[node name="game_over" type="Node2D"]
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="Control"]
+layout_mode = 0
+offset_left = 289.0
+offset_top = 1.0
+offset_right = 867.0
+offset_bottom = 329.0
+color = Color(1, 0.227451, 1, 1)
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_right = 1153.0
+offset_bottom = 120.0
+text = "You Have Lost... Better Luck Next Time! :)"
+label_settings = SubResource("LabelSettings_o8t8k")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 465.0
+offset_top = 130.0
+offset_right = 694.0
+offset_bottom = 246.0
+text = "Back to Menu"
+script = ExtResource("1_hhjh3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 163)
+zoom = Vector2(2, 2)
+
+[connection signal="pressed" from="Control/Button" to="Control/Button" method="_on_pressed"]
